@@ -1,0 +1,32 @@
+class Solution {
+public:
+    bool rec(int st,int en,int turn,int a,int b,vector<int>& nums){
+        if(turn==nums.size()){
+            if(a>=b){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        bool left,right;
+        if(turn%2==0){
+            left=rec(st+1,en,turn+1,a+nums[st],b,nums);
+            right=rec(st,en-1,turn+1,a+nums[en],b,nums);
+            return left||right;
+        }
+        else{
+             left=rec(st+1,en,turn+1,a,b+nums[st],nums);
+            right=rec(st,en-1,turn+1,a,b+nums[en],nums);
+            return left && right;
+        }
+    }
+    bool PredictTheWinner(vector<int>& nums) {
+       int a=0;
+       int b=0;
+       int turn=0;
+       int st=0;
+       int en=nums.size()-1;
+       return rec(st,en,turn,a,b,nums); 
+    }
+};
