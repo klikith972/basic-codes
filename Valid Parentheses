@@ -1,0 +1,32 @@
+#include <stack>
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> mstack;
+        if(s.length()==0 || s.length()==1){
+            return false;
+        }
+        for(int i=0;i<s.length();i++){
+            if(s[i]=='(' || s[i]=='{' || s[i]=='['){
+                mstack.push(s[i]);
+            }
+            else{
+                if(mstack.empty()){
+                    return false;
+                }
+                else if((s[i]==')' && mstack.top()=='(') || (s[i]=='}' && mstack.top()=='{' ) || (s[i]==']' && mstack.top()=='[')){
+                    mstack.pop();
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        if(mstack.empty()){
+            return true;
+        }
+        else{
+        return false;
+        }
+    }
+};
