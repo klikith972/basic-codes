@@ -1,0 +1,24 @@
+import random
+
+
+def find_7_numbers(numbers):
+  """Finds 7 numbers from the given list of numbers that add up to 100."""
+  random.shuffle(numbers)
+
+  for i in range(len(numbers) - 6):
+    subset = numbers[i:i + 7]
+    if sum(subset) == 100:
+      return subset
+
+
+def main():
+  numbers = list(map(int, input("Enter 9 numbers between 0 and 100: ").split()))
+  numbers.sort()
+
+  print("The 7 numbers are:")
+  for number in find_7_numbers(numbers):
+    print(number, end=" ")
+
+
+if _name_ == "_main_":
+  main()
