@@ -1,0 +1,16 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int findMissingNumber(vector<int>& nums) {
+    int n = nums.size();
+    int totalSum = (n * (n + 1)) / 2; // Sum of the first n natural numbers
+    
+    int arraySum = 0;
+    for (int num : nums) {
+        arraySum += num; // Calculate the sum of elements in the array
+    }
+    
+    return totalSum - arraySum; // The missing number is the difference between the expected sum and the actual sum
+}
