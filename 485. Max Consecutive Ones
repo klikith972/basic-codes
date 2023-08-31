@@ -1,0 +1,19 @@
+
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int maxConsecutive = 0; // Variable to store the maximum consecutive count
+        int currentConsecutive = 0; // Variable to track the current consecutive count
+        
+        for (int num : nums) {
+            if (num == 1) {
+                currentConsecutive++; // Increment the current consecutive count
+                maxConsecutive = max(maxConsecutive, currentConsecutive); // Update max if needed
+            } else {
+                currentConsecutive = 0; // Reset the current consecutive count
+            }
+        }
+        
+        return maxConsecutive;
+    }
+};
