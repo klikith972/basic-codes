@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+     int count=0;
+     int candaite=0;
+     for(int num: nums){
+         if(count==0){
+             candaite=num;
+         }
+         if(num==candaite){
+             count+=1;
+         }
+         else{
+             count-=1;
+         }
+     }
+     return candaite;   
+    }
+};
