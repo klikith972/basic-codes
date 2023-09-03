@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+       if (prices.empty()) {
+           return 0;
+       }
+       
+       int minPrice = prices[0]; // Initialize minPrice to the first price
+       int maxProfit = 0; // Initialize maxProfit to 0
+       
+       for (int i = 1; i < prices.size(); i++) {
+           if (prices[i] < minPrice) {
+               minPrice = prices[i]; // Update minPrice if we find a lower price
+           } else {
+               int profit = prices[i] - minPrice; // Calculate the profit if we sell at the current price
+               if (profit > maxProfit) {
+                   maxProfit = profit; // Update maxProfit if we find a higher profit
+               }
+           }
+       }
+       
+       return maxProfit;
+    }
+};
