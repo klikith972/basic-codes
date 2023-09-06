@@ -1,0 +1,13 @@
+x=121
+k=x
+s=0
+while(x>0):
+    p=x%10
+    s=s*10+p
+    x=x//10
+print(s)
+if(s==k):
+    print("palindrome")
+else:
+    print("not palindrome")
+    
