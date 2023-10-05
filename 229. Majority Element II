@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        int sum=0;
+        int i;
+        int n=nums.size();
+        unordered_map<int,int> um;
+        for( i=0;i<n;i++){
+            um[nums[i]]++;
+        }
+        vector <int> result;
+             for (const auto& pair : um) {
+                if (pair.second > n / 3) {
+                result.push_back(pair.first);
+            }
+        }
+        return result;
+
+    }
+};
