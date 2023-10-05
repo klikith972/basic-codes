@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<long long> sumOfThree(long long num) {
+        long long k;
+        vector <long long> dhanush;
+        if((num-3)%3!=0){
+            return dhanush;
+        }
+        k=(num-3)/3;
+        dhanush.push_back(k);
+        dhanush.push_back(k+1);
+        dhanush.push_back(k+2);
+
+        return dhanush;
+    }
+};
