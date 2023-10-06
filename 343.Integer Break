@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int integerBreak(int n) {
+        if (n <= 3) {
+            // For n <= 3, it's optimal to break it into n-1 or n-2 integers
+            // as this will maximize the product.
+            return n - 1;
+        }
+
+        int quotient = n / 3;
+        int remainder = n % 3;
+
+        if (remainder == 0) {
+            // If n is divisible by 3, break it into all 3's
+            return static_cast<int>(pow(3, quotient));
+        } else if (remainder == 1) {
+            // If the remainder is 1, break it into (3^(quotient-1)) * 4
+            return static_cast<int>(pow(3, quotient - 1)) * 4;
+        } else {
+            // If the remainder is 2, break it into (3^quotient) * 2
+            return static_cast<int>(pow(3, quotient)) * 2;
+        }
+    }
+};
