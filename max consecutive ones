@@ -1,0 +1,24 @@
+int consecutiveOnes(vector<int>& arr){
+    //Write your code here.
+    int n=arr.size();
+    int c=0;
+    int maxc=0;
+    if(n==0){
+        return 0;
+    }
+    for(int i=0;i<=n;i++){
+        if(arr[i]==1){
+            c++;
+        }
+        else{
+            if(c>maxc){
+                maxc=c;
+            }
+            c=0;
+        }
+        if(c>maxc){
+            maxc=c;
+        }
+    }
+    return maxc;
+}
